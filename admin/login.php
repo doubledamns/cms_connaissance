@@ -18,18 +18,18 @@
     <!--Tailwinds-->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="../css/admin.css">
-    <script src="/js/default.js"></script>
+    <script src="../js/default.js"></script>
   
 </head>
 
 <body>
-<form id="clickform"> 
+<form action="auth.php" id="clickform" method="post"> 
 	<label ><span class='utili'>Nom d'utilisateur:</span></label><br/>
-	<input type="email" name="email" id="email"  required><br/>
+	<input type="text" name="email" id="email" ><br/>
 	<label for="password"><span class='mp'>Mot de passe:</span></label><br/>
-	<input type="password" name="password" id="password"  required>
+	<input type="password" name="password" id="password">
 	<pre></pre>
-	<input type="submit" value="connexion" onclick="Connexion()"/>
+	<button type="submit">Connexion</button>
 </form>  
 </body>
 
