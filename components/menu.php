@@ -3,7 +3,7 @@
         <div class="flex justify-start w-20 h-20">
             <a>
                 <span class="sr-only">Logo BDC</span>
-                <img class="w-full h-full" src="images/logo-BDC.png" alt="Logo de l'association S'La Charcot">
+                <img class="w-full h-full" src="images/logo-BDC.png" alt="Logo BDC">
             </a>
         </div>
 
@@ -25,9 +25,9 @@
             <div class="menu-mobile-top px-5 pt-5 pb-6">
                 <div class="flex items-center justify-between">
                     <div>
-                        <img class="h-10 w-auto" src="images/logo-BDC.png" alt="Logo de l'association S'La Charcot">
+                        <img class="h-10 w-auto" src="images/logo-BDC.png" alt="Logo BDC">
                     </div>
-                    <div class="mr-2">
+                    <div class=" mr-2">
                         <button onclick="doMenu()" type="button" class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-100">
                             <span class="sr-only">Close menu</span>
                             <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">

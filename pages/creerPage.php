@@ -10,15 +10,18 @@
 
     <div class="p-4 sm:ml-64">
         <section id="creerPage">
-            <h2 class="pb-12 text-4xl font-semibold">Créer une page</h2>
+            <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Créer une page</h2>
             <form>
-                <div class="space-y-12">
+                <div class="space-y-6">
                     <div class="sm:col-span-3 shadow-lg p-4 rounded-lg w-fit">
                         <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Titre de la page</label>
                         <div class="mt-2">
                             <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-56 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-200 sm:text-sm sm:leading-6">
                         </div>
+                    </div>
 
+                    <div class="shadow-lg p-4 rounded-lg w-fit">
+                        <textarea> Welcome to TinyMCE! </textarea>
                     </div>
 
                     <div class="col-span-full shadow-lg p-4 rounded-lg w-fit">
@@ -42,11 +45,34 @@
                 </div>
             </form>
 
-
+            <div class="mt-6 flex items-center justify-start gap-x-6">
+                <button type="button" class="rounded-md bg-purple-100 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-100">Cancel</button>
+                <button type="submit" class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-100">Save</button>
+            </div>
         </section>
     </div>
 
     <?php require('../components/injectionsScript.php') ?>
+    <!-- Script TinyMCE -->
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [{
+                    value: 'First.Name',
+                    title: 'First Name'
+                },
+                {
+                    value: 'Email',
+                    title: 'Email'
+                },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant")),
+        });
+    </script>
 </body>
 
 </html>

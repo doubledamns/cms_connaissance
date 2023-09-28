@@ -10,7 +10,7 @@
 
     <div class="p-4 sm:ml-64">
         <section id="titleSite">
-        <h2 class="pb-12 text-4xl font-semibold">Changer le nom du site</h2>
+        <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Changer le nom du site</h2>
             <div class="sm:col-span-3 shadow-lg p-4 rounded-lg w-fit">
                 <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Nom du site</label>
                 <div class="mt-2">
