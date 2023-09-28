@@ -30,7 +30,7 @@
     </script>
 </head>
 
-<form id="createForm" enctype="multipart/form-data" action="fonctions.php" method="post">
+<form id="createForm" action="./include/fonctions.php"enctype="multipart/form-data">
         <label for="title">Titre :</label>
         <input type="text" id="title" name="title" required>
         

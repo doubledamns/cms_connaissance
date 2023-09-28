@@ -1,9 +1,11 @@
+
+
 <?php
-// Paramètres de connexion à la base de données
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $dbname = "cms_bdd";
+
 
 // Création de la connexion
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -50,4 +52,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 // Fermeture de la connexion
 $conn->close();
 ?>
+
+
+
+
+
+
+
 
