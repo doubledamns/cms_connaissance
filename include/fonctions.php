@@ -1,9 +1,8 @@
 <?php
 
 function connectToBase(){
-    """
-        Connexion à la bdd
-    """
+    
+        //Connexion à la bdd
     $servername = "127.0.0.1";
     $username = "root";
     $password = "";
