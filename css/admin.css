@@ -1,0 +1,22 @@
+body {
+    background-color: #B5A5DF;
+    border-radius: 30px;
+}
+form{
+	margin-top: 10%;
+	margin-left: 40%;
+	
+	width: 30%;
+	height: 200px;
+    
+}
+.utili{
+	font-weight: bolder;
+}
+.mp{
+	font-weight: bolder;
+}
+
+
+
+
