@@ -10,8 +10,9 @@
 
     <div class="p-4 sm:ml-64">
         <section id="titleSite">
+        <h2 class="pb-12 text-4xl font-semibold">Changer le nom du site</h2>
             <div class="sm:col-span-3 shadow-lg p-4 rounded-lg w-fit">
-                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Titre du site</label>
+                <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Nom du site</label>
                 <div class="mt-2">
                     <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-56 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-200 sm:text-sm sm:leading-6">
                 </div>

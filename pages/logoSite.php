@@ -10,6 +10,7 @@
 
     <div class="p-4 sm:ml-64">
         <section id="logoSite">
+        <h2 class="pb-12 text-4xl font-semibold">Changer le logo du site</h2>
             <div class="col-span-full shadow-lg p-4 rounded-lg w-fit">
                 <label for="photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
                 <div class="mt-2 flex items-center gap-x-3">
