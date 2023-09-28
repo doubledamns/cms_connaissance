@@ -5,23 +5,25 @@ function validerEmail() {
 
     if (!reg.test(email)) {
         return false; 
+        alert("test");
     }
     return true; 
 }
 document.addEventListener("DOMContentLoaded", () => {
 var loginForm = document.getElementById("clickform");
 loginForm.addEventListener("submit", function(e) {
-    e.preventDefault();
     var username=document.getElementById('email').value;
     var password=document.getElementById('password').value;
+
     if(!validerEmail()){
-        return false;
+        e.preventDefault();
     }
    
     if(username==""||password==""){
         alert("veuiller remplir tous les champs obligatoires");
-        return false;
+        e.preventDefault();
     }
+
     return true;
 }); 
 });   
