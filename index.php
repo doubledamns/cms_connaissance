@@ -36,7 +36,7 @@
         Hello world!
     </h1>
 
-    <a href ="">admin</a>
+    <a href ="admin/login.php">admin</a>
 
 </body>
 
