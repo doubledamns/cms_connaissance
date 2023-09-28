@@ -1,25 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BDC WordPress</title>
-    <link href="../css/admin.css" rel="stylesheet"/>
-      <!--Tailwinds-->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="../js/default.js"></script>
-    <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
+    <?php require('../components/head.php') ?>
 </head>
+
 <body>
 <h1 class="text-3xl font-bold underline">
     Hello world!
@@ -35,6 +20,8 @@
   }
  
 ?>  
+
+<?php require('../components/injectionsScript.php') ?>
 </body>
 
 </html>
