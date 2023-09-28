@@ -17,6 +17,7 @@
 
     <!--Tailwinds-->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="js/default.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -34,6 +35,8 @@
     <h1 class="text-3xl font-bold underline">
         Hello world!
     </h1>
+
+    <a href ="">admin</a>
 
 </body>
 
