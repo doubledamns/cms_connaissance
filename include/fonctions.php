@@ -6,52 +6,28 @@ $username = "root";
 $password = "";
 $dbname = "cms_bdd";
 
+$title = 'dk';
+$content = "kdd";
+$files = "tr";
 
-// Création de la connexion
-$conn = new mysqli($servername, $username, $password, $dbname);
 
-// Vérification de la connexion
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Vérification si le formulaire a été soumis
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Récupération des données du formulaire
-    $title = $_POST["title"];
-    $content = $_POST["content"];
+try{
+    $dbco = new PDO("mysql:host=$servname;dbname=$dbname", $username, $password);
+    $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
-    // Vérification et traitement du fichier téléchargé
-    if (isset($_FILES["file"]) && $_FILES["file"]["error"] == 0) {
-        $target_dir = "uploads/";
-        $target_file = $target_dir . basename($_FILES["file"]["name"]);
-        
-        // Déplacement du fichier téléchargé vers le répertoire cible
-        if (move_uploaded_file($_FILES["file"]["tmp_name"], $target_file)) {
-            // Préparation de la requête SQL
-            $stmt = $conn->prepare("INSERT INTO page (title, content, img) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $title, $content, $target_file);
-            
-            // Exécution de la requête SQL
-            if ($stmt->execute()) {
-                echo "Nouvelle page créée avec succès.";
-            } else {
-                echo "Erreur: " . $stmt->error;
-            }
-            
-            // Fermeture de la requête préparée
-            $stmt->close();
-        } else {
-            echo "Erreur lors du téléchargement du fichier.";
-        }
-    } else {
-        echo "Erreur: Fichier non téléchargé ou autre erreur.";
-    }
+
+    $sth = $dbco->prepare("INSERT INTO page (title,content,img) VALUES (:title, :content, :img)");
+                $sth->execute(array(
+                                    ':title' => $title,
+                                    ':content' => $content,
+                                    ':img' => $files,
+                                    ));
+    $dbco->exec($sql);
+    echo 'Entrée ajoutée dans la table';
+}catch(PDOException $e){
+    echo "Erreur : " . $e->getMessage();
 }
 
-// Fermeture de la connexion
-$conn->close();
-?>
 
 
 
@@ -60,3 +36,66 @@ $conn->close();
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+<?php
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "cms_bdd";
+
+
+$imgContent = "";
+$
+
+
+
+try {
+    $dbco = new PDO("mysql:host=$servname;dbname=$dbname", $username, $password);
+    $dbco->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Vérifiez si le fichier a été téléchargé
+    if(isset($_FILES['fileToUpload']) && $_FILES['fileToUpload']['error'] == UPLOAD_ERR_OK) {
+        
+        // Récupérez le contenu du fichier et encodez-le en base64
+        //$imageContent = base64_encode(file__contents($_FILES['fileToUpload']['tmp_name']));
+        
+        // Démarrez la transaction
+        $dbco->beginTransaction();
+        
+        // Préparez la requête SQL
+        $stmt = $dbco->prepare("INSERT INTO page (title, content, img) VALUES ($title, $content, $imgContent)");
+        
+        // Liez les paramètres et exécutez la requête
+        $stmt->execute([
+        ]);
+        
+        // Validez la transaction
+        $dbco->commit();
+        
+        echo 'Entrée ajoutée dans la table';
+        
+    } else {
+        echo 'Erreur lors du téléchargement du fichier.';
+    }
+    
+} catch(PDOException $e) {
+    // Annulez la transaction si une erreur se produit
+    $dbco->rollBack();
+    echo "Erreur : " . $e->getMessage();
+}
+*/

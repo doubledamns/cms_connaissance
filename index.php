@@ -30,15 +30,15 @@
     </script>
 </head>
 
-<form id="createForm" action="./include/fonctions.php"enctype="multipart/form-data">
+<form id="createForm" method="post" action="./include/fonctions.php" enctype="multipart/form-data">
         <label for="title">Titre :</label>
-        <input type="text" id="title" name="title" required>
+        <input type="text" id="title" name="title" >
         
         <label for="content">Texte :</label>
-        <textarea id="content" name="content" rows="4" required></textarea>
+        <textarea id="content" name="content" rows="4" ></textarea>
         
-        <label for="file">Choisir un fichier :</label>
-        <input type="file" id="file" name="file" required>
+        <label for="img">Choisir un fichier :</label>
+        <input type="img" id="img" name="img" >
         
         <button type="submit">Créer la Page</button>
     </form>
