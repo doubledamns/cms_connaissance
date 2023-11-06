@@ -1,35 +1,35 @@
 <?php
-$servername = "localhost";
+
+// Paramètres de connexion à la base de données
+$servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $dbname = "cms_bdd";
 
+// Établir la connexion à la base de données
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Vérifier la connexion
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Échec de la connexion : " . $conn->connect_error);
 }
 
-$stmt = $conn->prepare("SELECT nom FROM noms_sites WHERE id = 1");
+
+// Récupération du nom du site
+$stmt = $conn->prepare('SELECT nom FROM noms_sites WHERE id = 1');
 if ($stmt->execute()) {
-    // Associer les variables de résultat
     $stmt->bind_result($nomDuSite);
-    
-    // Récupérer les données
+
     $stmt->fetch();
-        
-    }
+}
+$stmt->close(); // Fermeture de la première requête préparée
 
-// Fermeture de la requête préparée
-$stmt->close();
+// Récupération des pages
+$stmt = $conn->prepare("SELECT id, title FROM page");
 
-// Fermeture de la connexion
-$conn->close();?>
-
-
-
-
-
+$stmt->execute();
+$result = $stmt->get_result();
+?>
 
 <button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-900 bg-purple-300 rounded-lg sm:hidden hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-puple-100">
     <span class="sr-only">Ouvrir la navigation</span>
@@ -41,12 +41,12 @@ $conn->close();?>
 <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-purple-200 ">
         <div class="flex flex-col justify-center w-full h-20 mb-6">
-            <img class="w-20 h-full self-center" src="/images/logo-BDC.png" alt="Logo BDC"/>
-                            <h1 class="text-xl font-semibold text-center"><?php echo $nomDuSite;?></h1>
+            <img class="w-20 h-full self-center" src="/images/logo-BDC.png" alt="Logo BDC" />
+            <h1 class="text-xl font-semibold text-center"><?php echo $nomDuSite; ?></h1>
         </div>
         <ul class="space-y-2 font-medium">
             <li>
-                <a href="./" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                <a href="./dashboard.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
                         <path d="M16.975 11H10V4.025a1 1 0 0 0-1.066-.998 8.5 8.5 0 1 0 9.039 9.039.999.999 0 0 0-1-1.066h.002Z" />
                         <path d="M12.5 0c-.157 0-.311.01-.565.027A1 1 0 0 0 11 1.02V10h8.975a1 1 0 0 0 1-.935c.013-.188.028-.374.028-.565A8.51 8.51 0 0 0 12.5 0Z" />
@@ -95,6 +95,17 @@ $conn->close();?>
                 </a>
             </li>
             <li>
+                <a href="./listePage.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg id='Todo_List_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+                        <rect width='24' height='24' stroke='none' fill='#000000' opacity='0' />
+                        <g transform="matrix(0.47 0 0 0.47 12 12)">
+                            <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-24.67, -24.56)" d="M 13.21875 5.375 L 7.375 12.84375 L 4.65625 10.4375 L 3.34375 11.9375 L 6.84375 15.0625 L 7.625 15.75 L 8.28125 14.90625 L 14.78125 6.625 Z M 19 10 L 19 12 L 46 12 L 46 10 Z M 13.21875 19.375 L 7.375 26.84375 L 4.65625 24.4375 L 3.34375 25.9375 L 6.84375 29.0625 L 7.625 29.75 L 8.28125 28.90625 L 14.78125 20.625 Z M 19 24 L 19 26 L 46 26 L 46 24 Z M 13.21875 33.375 L 7.375 40.84375 L 4.65625 38.4375 L 3.34375 39.9375 L 6.84375 43.0625 L 7.625 43.75 L 8.28125 42.90625 L 14.78125 34.625 Z M 19 38 L 19 40 L 46 40 L 46 38 Z" stroke-linecap="round" />
+                        </g>
+                    </svg>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Liste des pages</span>
+                </a>
+            </li>
+            <li>
                 <a href="./login.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 18">
                         <path d="M14 2a3.963 3.963 0 0 0-1.4.267 6.439 6.439 0 0 1-1.331 6.638A4 4 0 1 0 14 2Zm1 9h-1.264A6.957 6.957 0 0 1 15 15v2a2.97 2.97 0 0 1-.184 1H19a1 1 0 0 0 1-1v-1a5.006 5.006 0 0 0-5-5ZM6.5 9a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9ZM8 10H5a5.006 5.006 0 0 0-5 5v2a1 1 0 0 0 1 1h11a1 1 0 0 0 1-1v-2a5.006 5.006 0 0 0-5-5Z" />
@@ -102,7 +113,20 @@ $conn->close();?>
                     <span class="flex-1 ml-3 whitespace-nowrap">Page login</span>
                 </a>
             </li>
+
+            <?php if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo '
+                                                                        <li><a href="../admin/modifPage.php?page_id=' . $row["id"] . '" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">' . htmlspecialchars($row["title"]) . '</a></li>';
+                }
+            } else {
+                echo "Aucune page trouvée.";
+            }
+            $stmt->close(); // Fermeture de la deuxième requête préparée
+
+            // Fermeture de la connexion
+            $conn->close(); ?>
         </ul>
     </div>
-</aside>
 
+</aside>

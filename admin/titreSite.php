@@ -72,7 +72,7 @@ $conn->close();
         
     </div>
 
-    <?php require('./components/injectionsScript.php'); ?>
+    <?php require('../components/injectionsScript.php') ?>
 </body>
 
 </html>
