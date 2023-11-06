@@ -10,7 +10,7 @@
 
     <div class="p-4 sm:ml-64">
         <section id="titleSite">
-        <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Changer le nom du site</h2>
+            <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Changer le nom du site</h2>
             <div class="sm:col-span-3 shadow-lg p-4 rounded-lg w-fit">
                 <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Nom du site</label>
                 <div class="mt-2">
@@ -19,8 +19,8 @@
 
             </div>
             <div class="mt-6 flex items-center justify-start gap-x-6">
-                <button type="button" class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Cancel</button>
-                <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Save</button>
+                <a href="./dashboard.php"><button class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Annuler</button></a>
+                <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Sauvegarder</button>
             </div>
         </section>
     </div>
