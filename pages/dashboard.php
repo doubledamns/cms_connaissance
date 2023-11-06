@@ -8,7 +8,6 @@
 <body>
     <?php require('../components/sidebar.php') ?>
 
-    <?php echo 'test'; ?>
     <div class="p-4 sm:ml-64">
         <section id="creerPage">
             <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Dashboard</h2>
@@ -67,7 +66,7 @@
         </section>
     </div>
 
-    <?php //require('../components/injectionsScript.php') ?>
+    <?php require('../components/injectionsScript.php') ?>
 </body>
 
 </html>
