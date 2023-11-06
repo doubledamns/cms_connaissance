@@ -12,7 +12,7 @@
 
 <?php
   // check if the user is connected
-  if(!isset($_COOKIE["is_connected"])) {
+  if($_COOKIE["is_connected"]) {
     require("./admin.php");
   } else {
     require("./login.php");
