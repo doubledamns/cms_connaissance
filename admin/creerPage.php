@@ -11,7 +11,7 @@
     <div class="p-4 sm:ml-64">
         <section id="creerPage">
             <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Créer une page</h2>
-            <form>
+            <form id="createForm" method="post" action="../submit.php" enctype="multipart/form-data">
                 <div class="space-y-6">
                     <div class="sm:col-span-3 shadow-lg p-4 rounded-lg w-fit">
                         <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Titre de la page</label>
@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="shadow-lg p-4 rounded-lg w-fit">
-                        <textarea> Welcome to TinyMCE! </textarea>
+                        <textarea  id="content" name="content"> Welcome to TinyMCE! </textarea>
                     </div>
 
                     <div class="col-span-full shadow-lg p-4 rounded-lg w-fit">
@@ -32,10 +32,12 @@
                                     <path fill-rule="evenodd" d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z" clip-rule="evenodd" />
                                 </svg>
                                 <div class="mt-4 flex text-sm leading-6 text-gray-600">
-                                    <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-purple-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                    <!--<label for="image" class="relative cursor-pointer rounded-md bg-white font-semibold text-purple-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
                                         <span>Télécharges une photo</span>
-                                        <input id="file-upload" name="file-upload" type="file" class="sr-only">
-                                    </label>
+                                        <input id="image" name="image" type="file" class="sr-only">
+                                    </label>-->
+                                    <label for="img">Choose a file:</label>
+                                    <input type="file" id="img" name="img">
                                     <p class="pl-1">ou fais la glisser</p>
                                 </div>
                                 <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF jusqu'à 10MB</p>
@@ -43,12 +45,13 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            
 
             <div class="mt-6 flex items-center justify-start gap-x-6">
                 <a href="./dashboard.php"><button class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Annuler</button></a>
                 <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Sauvegarder</button>
             </div>
+            </form>     
         </section>
     </div>
 
