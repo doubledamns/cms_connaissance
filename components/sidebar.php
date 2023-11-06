@@ -1,30 +1,38 @@
 <?php
+// Paramètres de connexion à la base de données
 $servername = "127.0.0.1";
 $username = "root";
 $password = "";
 $dbname = "cms_bdd";
 
+// Établir la connexion à la base de données
 $conn = new mysqli($servername, $username, $password, $dbname);
 
+// Vérifier la connexion
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+    die("Échec de la connexion : " . $conn->connect_error);
 }
 
-$stmt = $conn->prepare("SELECT nom FROM noms_sites WHERE id = 1");
+
+// Récupération du nom du site
+$stmt = $conn->prepare('SELECT nom FROM noms_sites WHERE id = 1');
 if ($stmt->execute()) {
-    // Associer les variables de résultat
     $stmt->bind_result($nomDuSite);
 
-    // Récupérer les données
     $stmt->fetch();
 }
+$stmt->close(); // Fermeture de la première requête préparée
 
-// Fermeture de la requête préparée
-$stmt->close();
+// Récupération des pages
+$stmt = $conn->prepare("SELECT id, title FROM page");
 
-// Fermeture de la connexion
-$conn->close(); ?>
 
+$stmt->execute();
+$result = $stmt->get_result();
+
+
+
+?>
 
 
 
@@ -40,8 +48,8 @@ $conn->close(); ?>
 <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-purple-200 ">
         <div class="flex flex-col justify-center w-full h-20 mb-6">
-            <img class="w-20 h-full self-center" src="/images/logo-BDC.png" alt="Logo BDC" />
-            <h1 class="text-xl font-semibold text-center"><?php echo $nomDuSite; ?></h1>
+
+
         </div>
         <ul class="space-y-2 font-medium">
             <li>
@@ -112,6 +120,22 @@ $conn->close(); ?>
                     <span class="flex-1 ml-3 whitespace-nowrap">Page login</span>
                 </a>
             </li>
+            
+                <?php if ($result->num_rows > 0) {
+                                                                    while($row = $result->fetch_assoc()) {
+                                                                        echo '
+                                                                        <li><a href="../admin/modifPage.php?page_id=' . $row["id"] . '" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">' . htmlspecialchars($row["title"]) . '</a></li>';
+                                                                    }
+                                                                } else {
+                                                                    echo "Aucune page trouvée.";
+                                                                }
+                                                                $stmt->close(); // Fermeture de la deuxième requête préparée
+
+                                                                // Fermeture de la connexion
+                                                                $conn->close();?>
+                                                                
+            
         </ul>
     </div>
+
 </aside>
