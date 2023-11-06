@@ -11,17 +11,17 @@
     <div class="p-4 sm:ml-64">
         <section id="creerPage">
             <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Créer une page</h2>
-            <form>
+            <form id="createForm" method="post" action="../submit.php">
                 <div class="space-y-6">
                     <div class="sm:col-span-3 shadow-lg p-4 rounded-lg w-fit">
                         <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Titre de la page</label>
                         <div class="mt-2">
-                            <input type="text" name="first-name" id="first-name" autocomplete="given-name" class="block w-56 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-300 sm:text-sm sm:leading-6">
+                            <input type="text" name="title" id="title" autocomplete="given-name" class="block w-56 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-purple-300 sm:text-sm sm:leading-6">
                         </div>
                     </div>
 
                     <div class="shadow-lg p-4 rounded-lg w-fit">
-                        <textarea> Welcome to TinyMCE! </textarea>
+                        <textarea  id="content" name="content"> Welcome to TinyMCE! </textarea>
                     </div>
 
                     <div class="col-span-full shadow-lg p-4 rounded-lg w-fit">
@@ -43,12 +43,13 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            
 
             <div class="mt-6 flex items-center justify-start gap-x-6">
                 <button type="button" class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Cancel</button>
                 <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Save</button>
             </div>
+            </form>     
         </section>
     </div>
 
