@@ -12,7 +12,7 @@
         <section id="logoSite">
             <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Changer le logo du site</h2>
             <div class="col-span-full shadow-lg p-4 rounded-lg w-fit">
-                <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Photo</label>
+                <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Logo</label>
                 <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div class="text-center">
                         <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -29,8 +29,8 @@
                     </div>
                 </div>
                 <div class="mt-6 flex items-center justify-start gap-x-6">
-                    <button type="button" class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Cancel</button>
-                    <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Save</button>
+                    <button type="button" class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Annuler</button>
+                    <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Sauvegarder</button>
                 </div>
         </section>
     </div>
