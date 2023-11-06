@@ -9,5 +9,5 @@
     header('Location: /cms_connaissance/admin/');
  }
  else {
-    echo 'Identifiant ou mot de passe incorrect. ';
+    echo 'Veillez remplir le champ correctement .............';
  }
