@@ -1,10 +1,13 @@
-
 <?php
+ $user = array(
+    "id" => "ouchadef@gmail.com",
+    "pass" => "1234"
+ );
 
-if (!empty($_POST['username']) && !empty($_POST['password'])) {
-    $username = strip_tags($_POST['username']);
-    $passwd = strip_tags($_POST['password']);
-
-    // si infos sont bonne -> renvoyer vers X.php
-    $passwd_hash = md5($password);
-}
+ if($_POST['username'] == $user['id'] && $_POST['password'] == $user[pass]){
+    setcookie('is_connected', true, (time()+20*24*60*60));
+    header('Location: /cms_connaissance/admin/');
+ }
+ else {
+    echo 'Veillez remplir le champ correctement .............';
+ }
