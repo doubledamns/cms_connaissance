@@ -37,7 +37,7 @@
                                         <input id="image" name="image" type="file" class="sr-only">
                                     </label>-->
                                     <label for="img">Choose a file:</label>
-                                    <input type="file" id="img" name="img">
+                                    <input type="file" id="img" name="img" class=>
                                     <p class="pl-1">ou fais la glisser</p>
                                 </div>
                                 <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF jusqu'à 10MB</p>
