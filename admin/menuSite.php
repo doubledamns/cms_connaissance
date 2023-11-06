@@ -10,8 +10,8 @@
 
     <div class="p-4 sm:ml-64">
         <section id="menuSite">
-       
-        <p>menu du site</p>
+            <h2 class="pb-12 text-4xl font-semibold text-center md:text-left">Gérer le menu du site</h2>
+
         </section>
     </div>
 
