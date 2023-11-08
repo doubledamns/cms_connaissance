@@ -1,9 +1,13 @@
+
+// Database connection parameters
+
+
     <?php
     // Database connection parameters
     $servername = "127.0.0.1";
     $username = "root";
     $password = "";
-    $dbname = "cms_bdd";
+
 
     // Create database connection
     $conn = new mysqli($servername, $username, $password, $dbname);
