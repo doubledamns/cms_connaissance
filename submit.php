@@ -4,9 +4,10 @@
 
     <?php
     // Database connection parameters
-    $servername = "127.0.0.1";
+    $servername = "Localhost";
     $username = "root";
-    $password = "";
+    $password = "root";
+    $dbname = "cms_bdd";
 
 
     // Create database connection

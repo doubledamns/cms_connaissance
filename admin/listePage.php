@@ -2,9 +2,9 @@
 <html lang="en">
 <?php
 // Paramètres de connexion à la base de données
-$servername = "127.0.0.1";
+$servername = "Localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "cms_bdd";
 
 // Établir la connexion à la base de données
