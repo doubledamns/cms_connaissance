@@ -96,10 +96,4 @@
 
         </ul>
     </div>
-   <?php $stmt->close(); // Fermeture de la première requête préparée
-
-
-
-// Fermeture de la connexion à la base de données
-$conn->close();?>
 </aside>

@@ -51,13 +51,12 @@ if ($conn->connect_error) {
     die("Échec de la connexion : " . $conn->connect_error);
 }
 
- //Récupération du nom du site et de l'URL
+//Récupération du nom du site et de l'URL
 $stmt = $conn->prepare('SELECT nom, url FROM noms_sites WHERE id = 1'); // Modification ici pour inclure l'URL
 if ($stmt->execute()) {
     $stmt->bind_result($nomDuSite, $urlDuSite); // Ajout de la variable $urlDuSite
 
     $stmt->fetch();
-
 }
 
 ?>
@@ -71,7 +70,12 @@ if ($stmt->execute()) {
 
 <body>
     <?php require('../components/sidebar.php'); ?>
-    <body>
-    <?php require('../components/sidebar.php'); ?>  
-    </body>
-    </body>
+
+    <?php require('../components/sidebar_sous_site.php'); ?>
+    <div class="ml-96 pl-36">
+        <div class="w-52 h-52">
+            <img class="w-full h-full" src="../images/logo-BDC.png" alt="Logo BDC">
+            <h2>Titre de la page</h2>
+        </div>
+    </div>
+</body></html>
