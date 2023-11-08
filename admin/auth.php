@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['connexion'])) {
             $_SESSION['isAdmin'] = $user['isAdmin'];
 
             // Rediriger vers la page d'administration
-            header("Location: listePage.php");
+            header("Location: dashboard.php");
             exit();
         } else {
             // Échec, mauvais mot de passe
