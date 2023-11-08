@@ -8,15 +8,9 @@
     </svg>
 </button>
 
-<aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
-    <div class="h-full px-3 py-4 overflow-y-auto bg-purple-200 ">
-        <div class="flex flex-col justify-center w-full h-20 mb-6">
-
-            <img class="w-20 h-full self-center" src="../images/logo-BDC.png" alt="Logo BDC" />
-
-            <h1 class="text-xl font-semibold text-center">CMS Connaissance</h1>
-        </div>
-        <ul class="space-y-2 font-medium">
+<aside id="default-sidebar" class="fixed left-64 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
+    <div class="h-full px-3 py-4 overflow-y-auto bg-purple-100 ">
+        <ul class="space-y-2 font-medium pt-28 ">
             <li>
                 <a href="./dashboard.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                     <svg class="flex-shrink-0 w-5 h-5 text-gray-500 transition duration-75 group-hover:text-gray-900" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 21">
