@@ -49,18 +49,21 @@ $result = $stmt2->get_result();
             <table>
 
     
-<?php if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo '
-                <a href="../admin/modifPage.php?page_id=' . $row["id"] . '" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">' . htmlspecialchars($row["title"]) . '</a>';
-            }
-        } else {
-            echo "Aucune page trouvée.";
-        }
-        $stmt2->close(); // Fermeture de la deuxième requête préparée
+<?php  if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        echo '
+        <tr>
+            <td><a href="../admin/modifPage.php?page_id=' . $row["id"] . '" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">' . htmlspecialchars($row["title"]) . '</a></td>
+            <td><a href="suppression.php?id=' . $row["id"] . '" class="text-red-500" onclick="return confirm(\'Êtes-vous sûr de vouloir supprimer cette page ?\');">Supprimer</a></td>
+            <td><a href="../admin/modifPage.php?page_id=' . $row["id"] . '" class="text-green-500" onclick="return confirm">Modifier</a></td>
+        </tr>';
+    }
+} else {
+    echo "Aucune page trouvée.";
+}
+?>
 
-        // Fermeture de la connexion
-        $conn2->close(); ?>
+
 </table>
                 <p>Contenu de la page</p>
             </div>
