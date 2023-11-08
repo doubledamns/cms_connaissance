@@ -1,4 +1,34 @@
 
+
+
+<?php
+// Paramètres de connexion à la base de données
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "cms_bdd";
+
+// Établir la connexion à la base de données
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("Échec de la connexion : " . $conn->connect_error);
+}
+
+ //Récupération du nom du site et de l'URL
+$stmt = $conn->prepare('SELECT nom, url FROM noms_sites WHERE id = 1'); // Modification ici pour inclure l'URL
+if ($stmt->execute()) {
+    $stmt->bind_result($nomDuSite, $urlDuSite); // Ajout de la variable $urlDuSite
+
+    $stmt->fetch();
+
+}
+
+?>
+
+
+
 <button href="./" data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-900 bg-purple-300 rounded-lg sm:hidden hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-puple-100">
     <span class="sr-only">Ouvrir la navigation</span>
     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
