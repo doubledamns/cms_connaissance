@@ -36,7 +36,13 @@ $result = $stmt2->get_result();
 </head>
 
 <body>
-    <?php require('../components/sidebar.php'); ?>
+<?php require('../components/sidebar.php'); ?>
+    <?php require('../components/sidebar_sous_site.php'); ?>
+    <div class="ml-96 pl-36">
+        <div class="w-52 h-52">
+            <img class="w-full h-full" src="../images/logo-BDC.png" alt="Logo BDC">
+            <h2>Titre de la page</h2>
+        
     <div class="p-4 sm:ml-64">
         <section id="creerPage">
             <div class="w-72 bg-white border border-gray-200 rounded-lg shadow p-4 gap-5">
@@ -60,11 +66,11 @@ $result = $stmt2->get_result();
             </div>
         </section>
     </div>
-
+    </div>
+    </div>
 
 
 
     <?php require('../components/injectionsScript.php') ?>
 </body>
 
-</html>
