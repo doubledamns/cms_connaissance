@@ -33,7 +33,34 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
-<button data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-900 bg-purple-300 rounded-lg sm:hidden hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-puple-100">
+<?php
+// Paramètres de connexion à la base de données
+$servername = "127.0.0.1";
+$username = "root";
+$password = "";
+$dbname = "cms_bdd";
+
+// Établir la connexion à la base de données
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Vérifier la connexion
+if ($conn->connect_error) {
+    die("Échec de la connexion : " . $conn->connect_error);
+}
+
+ //Récupération du nom du site et de l'URL
+$stmt = $conn->prepare('SELECT nom, url FROM noms_sites WHERE id = 1'); // Modification ici pour inclure l'URL
+if ($stmt->execute()) {
+    $stmt->bind_result($nomDuSite, $urlDuSite); // Ajout de la variable $urlDuSite
+
+    $stmt->fetch();
+
+}
+
+?>
+
+
+<button href="./" data-drawer-target="default-sidebar" data-drawer-toggle="default-sidebar" aria-controls="default-sidebar" type="button" class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-900 bg-purple-300 rounded-lg sm:hidden hover:bg-purple-200 focus:outline-none focus:ring-2 focus:ring-puple-100">
     <span class="sr-only">Ouvrir la navigation</span>
     <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
         <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
@@ -43,7 +70,9 @@ $result = $stmt->get_result();
 <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen transition-transform -translate-x-full sm:translate-x-0" aria-label="Sidebar">
     <div class="h-full px-3 py-4 overflow-y-auto bg-purple-200 ">
         <div class="flex flex-col justify-center w-full h-20 mb-6">
-            <img class="w-20 h-full self-center" src="../images/logo-BDC.png" alt="Logo BDC" />
+
+            <img class="w-20 h-full self-center" src="<?php echo $urlDuSite ?>" alt="Logo BDC" />
+
             <h1 class="text-xl font-semibold text-center"><?php echo $nomDuSite; ?></h1>
         </div>
         <ul class="space-y-2 font-medium">
@@ -105,7 +134,6 @@ $result = $stmt->get_result();
                         </g>
                     </svg>
                     <span class="flex-1 ml-3 whitespace-nowrap">Liste des pages</span>
-                </a>
             </li>
             <li>
                 <a href="./login.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
@@ -115,20 +143,14 @@ $result = $stmt->get_result();
                     <span class="flex-1 ml-3 whitespace-nowrap">Page login</span>
                 </a>
             </li>
+            
 
-            <?php if ($result->num_rows > 0) {
-                while ($row = $result->fetch_assoc()) {
-                    echo '
-                                                                        <li><a href="../admin/modifPage.php?page_id=' . $row["id"] . '" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">' . htmlspecialchars($row["title"]) . '</a></li>';
-                }
-            } else {
-                echo "Aucune page trouvée.";
-            }
-            $stmt->close(); // Fermeture de la deuxième requête préparée
-
-            // Fermeture de la connexion
-            $conn->close(); ?>
         </ul>
     </div>
+   <?php $stmt->close(); // Fermeture de la première requête préparée
 
+
+
+// Fermeture de la connexion à la base de données
+$conn->close();?>
 </aside>
