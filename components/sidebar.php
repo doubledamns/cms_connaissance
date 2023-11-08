@@ -1,15 +1,12 @@
 <?php
 
 // Paramètres de connexion à la base de données
-// $servername = "localhost";
-// $username = "root";
-// $password = "root";
-// $dbname = "cms_bdd";
+ $servername = "localhost";
+ $username = "root";
+ $password = "root";
+ $dbname = "cms_bdd";
 
-$servername = "127.0.0.1";
-$username = "root";
-$password = "";
-$dbname = "cms_bdd";
+
 
 // Établir la connexion à la base de données
 $conn = new mysqli($servername, $username, $password, $dbname);
