@@ -1,5 +1,10 @@
 <?php
-setcookie("is_connected", false, time()-(60*60*24*7));
-unset($_COOKIE["is_connected"]);
-header('Location: ../index.php');
+session_start();
 
+// Détruire toutes les données de session
+$_SESSION = array();
+session_destroy();
+
+// Rediriger vers la page de connexion
+header("Location: ../index.php");
+exit();

@@ -75,6 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['action'] == 'connexion') {
             $_SESSION['username'] = $user['username'];
 
             // Rediriger vers la page du tableau de bord de l'utilisateur
+            
             header("Location: ../user/dashboard.php");
             exit();
         } else {
