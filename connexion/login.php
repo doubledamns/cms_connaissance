@@ -7,7 +7,7 @@
     <!-- Ajoutez tout autre fichier CSS ou JS dont vous pourriez avoir besoin ici -->
 </head>
 
-<body>
+<body class="flex items-center justify-center h-screen  bg-purple-300">
     <!-- Affichage des messages d'erreur -->
     <?php
     if (isset($_SESSION['error'])) {
@@ -17,17 +17,7 @@
     ?>
 
     <!-- Formulaire de connexion -->
-    <form action="auth.php" method="POST">
-        <div class="login-container">
-            <label for="email"><b>Email</b></label>
-            <input type="text" placeholder="Entrer votre email" name="username" required>
-
-            <label for="password"><b>Mot de passe</b></label>
-            <input type="password" placeholder="Entrer le mot de passe" name="password" required>
-
-            <button type="submit" name="connexion">LOGIN</button>
-        </div>
-    </form>
+    <?php require('../components/formUser.php'); ?>
 
     <?php require('../components/injectionsScript.php'); ?>
     <!-- Ajoutez tout autre script JS que vous pourriez vouloir exécuter ici -->
