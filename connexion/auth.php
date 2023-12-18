@@ -54,16 +54,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['Inscription'])) {
     $stmt->close();
 }
 
+
 // Traitement de la connexion
 if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['action'] == 'connexion') {
     $user_email = $conn->real_escape_string($_POST['username']);
     $user_password = $conn->real_escape_string($_POST['password']);
 
     // Requête pour récupérer les informations de l'utilisateur
-    $stmt = $conn->prepare("SELECT id, username, passwd FROM user WHERE username = ?");
+    $stmt = $conn->prepare("SELECT id, username, passwd, isAdmin FROM user WHERE username = ?");
     $stmt->bind_param("s", $user_email);
     $stmt->execute();
     $result = $stmt->get_result();
+
+    if($user['isAdmin'] == 1){
+        $_SESSION['isAdmin'] = "true";
+    }
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc();
@@ -73,9 +78,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['action'] == 'connexion') {
             // Succès, initialiser la session
             $_SESSION['user_id'] = $user['id'];
             $_SESSION['username'] = $user['username'];
-
             // Rediriger vers la page du tableau de bord de l'utilisateur
-            
+            if ($user['isAdmin'] == 1) {
+                $_SESSION['isAdmin'] = true;
+            } else {
+                $_SESSION['isAdmin'] = false;
+            }
             header("Location: ../user/dashboard.php");
             exit();
         } else {
@@ -87,6 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && $_POST['action'] == 'connexion') {
 
     $stmt->close();
 }
+
 
 $conn->close();
 ?>
