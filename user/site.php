@@ -239,17 +239,21 @@ function loadPageContent(pageId) {
     .then(response => response.json())
     .then(data => {
     const pageContentDiv = document.getElementById('pageContent');
+    const imagePath = '../' + data.img; // Chemin relatif vers le dossier images
     pageContentDiv.innerHTML = `
         <article class="bg-white p-6 rounded-lg shadow-lg">
             <h1 class="text-3xl font-bold mb-4">${data.title}</h1>
-            <img class="w-full rounded-lg mb-4" src="${data.image_url}" alt="Image" />
+            <img class="w-full rounded-lg mb-4" src="${imagePath}" alt="Image" />
             <p class="text-gray-700 text-lg">${data.content}</p>
         </article>
     `;
 })
 
+
+
     .catch(error => console.error('Erreur:', error));
 }
+
 
 
 
