@@ -29,7 +29,9 @@
     }
 </script>
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Vérifiez si l'utilisateur est connecté. Si non, redirigez-le vers la page de connexion
 if (!isset($_SESSION['username'])) {

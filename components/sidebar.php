@@ -89,14 +89,12 @@ $conn = null;
                                 <ul class="space-y-2 font-medium">
                                 <?php foreach ($result as $row): ?>
                                     <li class="affichage">
-                                        <a href="site.php?id=<?php echo htmlspecialchars($row['id']); ?>" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                                        <a href="set_site.php?id=<?php echo htmlspecialchars($row['id']); ?>" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                                             <!-- Icône ou autre élément visuel ici -->
                                             <span class="ml-3"><?php echo htmlspecialchars($row['nom']); ?></span>
                                         </a>
                                     </li>
-                                <?php endforeach; ?>
-
-                        
+                                <?php endforeach; ?>                        
                         <li>
                             <a href="../user/CreeUnSite.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
                                 <!-- Icône ou autre élément visuel ici -->
