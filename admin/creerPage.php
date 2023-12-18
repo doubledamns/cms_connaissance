@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="shadow-lg p-4 rounded-lg w-fit">
-                        <textarea  id="content" name="content"> Welcome to TinyMCE! </textarea>
+                        <textarea id="content" name="content"> Welcome to TinyMCE! </textarea>
                     </div>
 
                     <div class="col-span-full shadow-lg p-4 rounded-lg w-fit">
@@ -39,13 +39,13 @@
                         </div>
                     </div>
                 </div>
-            
 
-            <div class="mt-6 flex items-center justify-start gap-x-6">
-                <a href="./dashboard.php"><button class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Annuler</button></a>
-                <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Sauvegarder</button>
-            </div>
-            </form>     
+
+                <div class="mt-6 flex items-center justify-start gap-x-6">
+                    <a href="./dashboard.php"><button class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Annuler</button></a>
+                    <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Sauvegarder</button>
+                </div>
+            </form>
         </section>
     </div>
 
