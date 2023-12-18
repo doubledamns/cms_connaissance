@@ -9,22 +9,52 @@
 
 <body>
     <?php require('../components/sidebar.php'); ?>
-
-    <?php require('../components/sidebar_sous_site.php'); ?>
-    <div class="pl-72 sm:ml-64 flex flex-col">
-        <div class="flex flex-row">
-            <div class="w-52 h-52">
-                <img class="w-full h-full" src="<?php echo $urlDuSite ?>" alt="Logo BDC" />
+    <div class="p-4 sm:ml-64">
+        <section id="menus" class="flex p-3 space-x-4">
+            <div class="w-24">
+                <img class="w-full" src="<?php echo $urlDuSite ?>" alt="Logo BDC" />
             </div>
-            <h2 class="self-center">
+            <div class="flex flex-wrap place-content-center space-x-2">
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+                <p>élément 1</p>
+                <p>élément 2</p>
+                <p>élément 3</p>
+            </div>
+        </section>
+        <section id="body">
+            <h1 class="self-center text-4xl">
                 <?php echo $nomDuSite ?>
-            </h2>
-        </div>
-        <div class="flex">
-            <p>élément 1</p>
-            <p>élément 2</p>
-            <p>élément 3</p>
-        </div>
+            </h1>
+        </section>
+        <section id="footer">
+
+        </section>
     </div>
 </body>
 
