@@ -72,4 +72,6 @@
 
     // Close the database connection
     $conn->close();
+    header('Location: ./admin/site.php');
+    exit; 
     ?>
