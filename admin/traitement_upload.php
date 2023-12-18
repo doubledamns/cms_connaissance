@@ -44,5 +44,4 @@ if (isset($_FILES['img']) && $_FILES['img']['error'] === UPLOAD_ERR_OK) {
     echo "Une erreur s'est produite lors de l'upload du fichier. Code d'erreur : " . $_FILES['img']['error'];
 }
 header('Location: logoSite.php');
-exit; 
-?>
+exit;
