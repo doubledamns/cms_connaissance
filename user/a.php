@@ -1,16 +1,11 @@
 <?php
 session_start();
 
-
 // Assurez-vous que l'utilisateur est connecté
 if (!isset($_SESSION['user_id'])) {
-    // Gérer le cas où l'utilisateur n'est pas connecté
     header("Location: ../connexion/login.php");
     exit();
 }
-
-
-
 
 // Paramètres de connexion à la base de données
 $servername = "127.0.0.1";
@@ -30,33 +25,12 @@ if ($conn->connect_error) {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Récupérer les données du formulaire
     $nom = $_POST["title"];
-    $description = $_POST["Description"]; // Ajouté pour gérer la description, si nécessaire
-    $userId = $_SESSION['user_id']; // Récupérer l'ID de l'utilisateur connecté
+    $description = $_POST["Description"];
+    $userId = $_SESSION['user_id'];
 
-    // Initialiser une variable pour le chemin du logo
-    $logoPath = '';
+    // (Traitement de l'image et autres opérations...)
 
-    // Vérifier et traiter le fichier téléchargé
-    if (isset($_FILES["img"]) && $_FILES["img"]["error"] == 0) {
-        $allowed_types = array("image/jpeg", "image/png", "image/gif");
-        if (in_array($_FILES["img"]["type"], $allowed_types)) {
-            $target_dir = "../images/images_sites_Logo/"; // Chemin du répertoire cible
-            $target_file = $target_dir . basename($_FILES["img"]["name"]);
-
-            // Déplacer le fichier téléchargé vers le répertoire cible
-            if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
-                $logoPath = $target_file;
-            } else {
-                echo "There was an error uploading your file.";
-                exit();
-            }
-        } else {
-            echo "Error: Only JPG, PNG, and GIF files are allowed.";
-            exit();
-        }
-    }
-
-    // Préparer la requête SQL pour insérer les données
+    // Préparer la requête SQL pour insérer les données du site
     $sql = "INSERT INTO noms_sites (nom, url, id_user) VALUES (?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("ssi", $nom, $logoPath, $userId);
@@ -64,18 +38,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Exécuter la requête SQL
     if ($stmt->execute()) {
         echo "New site created successfully.";
+
+        // Récupérer l'ID du nouveau site
+        $newSiteId = $conn->insert_id;
+
+        // Créer une page d'accueil par défaut pour le nouveau site
+        $sqlPage = "INSERT INTO page (title, content, home, id_site) VALUES ('Accueil', 'Bienvenue sur votre nouvelle page d\'accueil!', 1, ?)";
+        $stmtPage = $conn->prepare($sqlPage);
+        $stmtPage->bind_param("i", $newSiteId);
+
+        if ($stmtPage->execute()) {
+            echo "Default home page created successfully.";
+        } else {
+            echo "Error creating home page: " . $stmtPage->error;
+        }
+        $stmtPage->close();
     } else {
         echo "Error: " . $stmt->error;
     }
 
-    // Fermer l'instruction préparée
     $stmt->close();
 }
 
-// Fermer la connexion à la base de données
 $conn->close();
 
-// Rediriger vers une autre page après l'insertion
 header('Location: ../user/dashboard.php');
 exit();
 ?>

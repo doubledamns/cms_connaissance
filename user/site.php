@@ -77,7 +77,7 @@ foreach ($menus as $key => $menu) {
         <line x1="4" y1="4" x2="10" y2="10" />
     </svg>
 </button>
-</div>
+
 
     <!-- Bouton pour afficher la sidebar -->
     <button id="showSidebarBtn" class="show-sidebar-btn hidden">
@@ -93,6 +93,7 @@ foreach ($menus as $key => $menu) {
         <line x1="15" y1="15" x2="21" y2="21" />
     </svg>
 </button>
+</div>
 <body>
     <?php require('../components/sidebar.php'); ?>
 
