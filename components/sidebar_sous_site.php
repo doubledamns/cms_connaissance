@@ -63,6 +63,17 @@
                     <span class="flex-1 ml-3 whitespace-nowrap">Liste des pages</span>
             </li>
 
+            <li>
+                <a href="./PageAccueil.php" class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 group">
+                    <svg id='Todo_List_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'>
+                        <rect width='24' height='24' stroke='none' fill='#000000' opacity='0' />
+                        <g transform="matrix(0.47 0 0 0.47 12 12)">
+                            <path style="stroke: none; stroke-width: 1; stroke-dasharray: none; stroke-linecap: butt; stroke-dashoffset: 0; stroke-linejoin: miter; stroke-miterlimit: 4; fill: rgb(0,0,0); fill-rule: nonzero; opacity: 1;" transform=" translate(-24.67, -24.56)" d="M 13.21875 5.375 L 7.375 12.84375 L 4.65625 10.4375 L 3.34375 11.9375 L 6.84375 15.0625 L 7.625 15.75 L 8.28125 14.90625 L 14.78125 6.625 Z M 19 10 L 19 12 L 46 12 L 46 10 Z M 13.21875 19.375 L 7.375 26.84375 L 4.65625 24.4375 L 3.34375 25.9375 L 6.84375 29.0625 L 7.625 29.75 L 8.28125 28.90625 L 14.78125 20.625 Z M 19 24 L 19 26 L 46 26 L 46 24 Z M 13.21875 33.375 L 7.375 40.84375 L 4.65625 38.4375 L 3.34375 39.9375 L 6.84375 43.0625 L 7.625 43.75 L 8.28125 42.90625 L 14.78125 34.625 Z M 19 38 L 19 40 L 46 40 L 46 38 Z" stroke-linecap="round" />
+                        </g>
+                    </svg>
+                    <span class="flex-1 ml-3 whitespace-nowrap">Page d'accueil</span>
+            </li>
+
             
 
         </ul>

@@ -99,18 +99,38 @@ foreach ($menus as $key => $menu) {
     <?php require('../components/sidebar_sous_site.php'); ?>
 
     
-
-
-
-    <div class="ml-96 pl-36">
-        <div class="w-52 h-52">
-            <img class="w-full h-full" src="<?php echo htmlspecialchars($urlDuSite); ?>" alt="Image du site">
-            <h2><?php echo $nomDuSite?></h2>
+<!-- En-tête avec logo et titre du site -->
+<header class="bg-white shadow fixed top-0 left-0 right-0 z-50">
+        <div class="flex justify-between items-center px-6 py-4">
+            <div class="flex items-center">
+                <img class="h-12 w-12 mr-3" src="<?php echo htmlspecialchars($urlDuSite); ?>" alt="Logo du site">
+                <h1 class="text-3xl font-bold text-gray-900"><?php echo $nomDuSite; ?></h1>
+            </div>
+            <!-- Autres éléments de l'en-tête si nécessaire -->
         </div>
-    </div>
-    <nav class="bg-purple-300 shadow-md">
-        <ul class="flex justify-center space-x-4 p-4">
-            <?php foreach ($menus as $menu): ?>
+    </header>
+
+
+
+        <!-- Contenu principal -->
+        <div class="pt-16"> <!-- Ajout d'un padding en haut pour compenser la hauteur de l'en-tête -->
+        <div class="ml-96 pl-36">
+            <!-- Autres contenus de la page -->
+        </div>
+        <nav class="bg-purple-300 shadow-md">
+            <ul class="flex justify-center space-x-4 p-4">
+                <li>
+                    <a href="set_site.php?id=<?php echo htmlspecialchars($siteId); ?>" class="inline-flex items-center p-2 text-gray-900 bg-white rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-500">
+                        <svg class="h-8 w-8 text-gray-500" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z"/>
+                            <polyline points="5 12 3 12 12 3 21 12 19 12" />
+                            <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+                            <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+                        </svg>
+                        <span class="ml-2">Accueil</span>
+                    </a>
+                </li>
+                <?php foreach ($menus as $menu): ?>
                 <li class="relative group">
                     <a href="#" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus:outline-none">
                         <?php echo htmlspecialchars($menu['Nom']); ?>
@@ -125,8 +145,10 @@ foreach ($menus as $key => $menu) {
                     </div>
                 </li>
             <?php endforeach; ?>
-        </ul>
-    </nav>
+            </ul>
+        </nav>
+    </div>
+
 
 
     <div id="pageContent" class="page-content mt-8 max-w-4xl mx-auto">
