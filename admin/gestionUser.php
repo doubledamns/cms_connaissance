@@ -4,17 +4,7 @@
 
 <head>
     <?php require('../components/head.php');
-    // Connexion à la base de données
-    $servername = "127.0.0.1";
-    $username = "root";
-    $password = "";
-    $dbname = "cms_bdd";
-
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    if ($conn->connect_error) {
-        die("Échec de la connexion : " . $conn->connect_error);
-    } ?>
+ ?>
     <!-- Assurez-vous d'inclure le lien vers Tailwind CSS ici si ce n'est pas déjà fait -->
 
 </head>
@@ -43,7 +33,17 @@
             </thead>
             <tbody class="block md:table-row-group">
             <?php
-                
+                    // Connexion à la base de données
+    $servername = "127.0.0.1";
+    $username = "root";
+    $password = "";
+    $dbname = "cms_bdd";
+
+    $conn = new mysqli($servername, $username, $password, $dbname);
+
+    if ($conn->connect_error) {
+        die("Échec de la connexion : " . $conn->connect_error);
+    }
 
                 $sql = "SELECT id, username, passwd, isAdmin FROM user";
                 $result = $conn->query($sql);
