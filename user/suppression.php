@@ -39,3 +39,4 @@ $conn->close();
 // Redirection vers la liste des pages
 header("Location: listePage.php");
 exit;
+?>

@@ -1,13 +1,16 @@
-
-// Database connection parameters
-
-
     <?php
+    
+    session_start();
+    
+
+    
+    // Reste du code pour site.php
+    
     // Database connection parameters
     $servername = "127.0.0.1";
     $username = "root";
     $password = "";
-
+    $dbname = "cms_bdd";
 
     // Create database connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -17,6 +20,11 @@
         die("Connection failed: " . $conn->connect_error);
     }
 
+
+
+
+
+
     // Check if the form was submitted
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Retrieve form data
@@ -25,6 +33,10 @@
         
         // Initialize a variable for the image path
         $imagePath = '';
+
+        $idSite = $_SESSION['siteId'];
+        $idUser = $_SESSION['user_id'];
+
 
         // Check and process the uploaded file
         if (isset($_FILES["img"]) && $_FILES["img"]["error"] == 0) {
@@ -52,8 +64,8 @@
         echo"8";
         
         // Prepare the SQL query
-        if ($stmt = $conn->prepare("INSERT INTO page (title, content, img) VALUES (?, ?, ?)")) {
-            $stmt->bind_param("sss", $title, $content, $imagePath);
+        if ($stmt = $conn->prepare("INSERT INTO page (title, content, img, id_site, id_user) VALUES (?, ?, ?, ?, ?)")) {
+        $stmt->bind_param("sssii", $title, $content, $imagePath, $idSite, $idUser);
             
             // Execute the SQL query
             if ($stmt->execute()) {
@@ -71,6 +83,6 @@
 
     // Close the database connection
     $conn->close();
-    header('Location: ./admin/site.php');
+    header('Location: ./user/site.php');
     exit; 
     ?>

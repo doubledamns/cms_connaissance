@@ -6,7 +6,7 @@
 
 <!--Favicons-->
 <link rel="icon" type="image/png" href="images/logo-BDC.png">
-
+<link rel="stylesheet" href="../css/admin.css">
 <!--Tailwinds-->
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
@@ -28,11 +28,24 @@
         ]
     }
 </script>
-<?php
-session_start();
+ 
+    <!-- Ajoutez tout autre fichier CSS ou JS dont vous pourriez avoir besoin ici -->
+</head>
 
-// Vérifiez si l'utilisateur est connecté. Si non, redirigez-le vers la page de connexion
-if (!isset($_SESSION['username'])) {
-    header("Location: ../index.php");
-    exit();
-}?>
+<body class="flex items-center justify-center h-screen  bg-purple-300">
+    <!-- Affichage des messages d'erreur -->
+    <?php
+    if (isset($_SESSION['error'])) {
+        echo '<p class="error">' . $_SESSION['error'] . '</p>';
+        unset($_SESSION['error']); // Assurez-vous de détruire l'erreur après l'avoir affichée pour qu'elle ne persiste pas.
+    }
+    ?>
+
+    <!-- Formulaire de connexion -->
+    <?php require('../components/formUser.php'); ?>
+
+    <?php require('../components/injectionsScript.php'); ?>
+    <!-- Ajoutez tout autre script JS que vous pourriez vouloir exécuter ici -->
+
+</body>
+</html>

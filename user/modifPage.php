@@ -1,11 +1,14 @@
 <?php
 // Database connection parameters
-$servername = "localhost";
+// $servername = "localhost";
+// $username = "root";
+// $password = "root";
+// $dbname = "cms_bdd";
+
+$servername = "127.0.0.1";
 $username = "root";
-$password = "root";
+$password = "";
 $dbname = "cms_bdd";
-
-
 
 // Create database connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -45,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (in_array($_FILES["img"]["type"], $allowed_types)) {
             $target_dir = "images/";
             $target_file = $target_dir . basename($_FILES["img"]["name"]);
-
+            
             // Move the uploaded file to the target directory
             if (move_uploaded_file($_FILES["img"]["tmp_name"], $target_file)) {
                 $imagePath = $target_file;
@@ -135,7 +138,7 @@ $conn->close();
                     <a href="./dashboard.php"><button type="button" class="rounded-md bg-purple-200 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Annuler</button></a>
                     <button type="submit" class="rounded-md bg-purple-300 px-3 py-2 text-sm font-semibold text-black shadow-sm hover:bg-purple-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-purple-200">Sauvegarder</button>
                 </div>
-            </form>
+            </form>     
         </section>
     </div>
 

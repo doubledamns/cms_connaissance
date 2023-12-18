@@ -51,12 +51,20 @@ if ($conn->connect_error) {
     die("Échec de la connexion : " . $conn->connect_error);
 }
 
-//Récupération du nom du site et de l'URL
-$stmt = $conn->prepare('SELECT nom, url FROM noms_sites WHERE id = 1'); // Modification ici pour inclure l'URL
-if ($stmt->execute()) {
-    $stmt->bind_result($nomDuSite, $urlDuSite); // Ajout de la variable $urlDuSite
 
+// Récupérer l'ID du site à partir de l'URL
+$_SESSION['$siteId'] = isset($_GET['id']) ? $_GET['id'] : 0;
+
+// Récupération du nom du site et de l'URL pour l'ID spécifique
+$stmt = $conn->prepare('SELECT nom, url FROM noms_sites WHERE id = ?');
+$stmt->bind_param('i', $siteId);
+
+if ($stmt->execute()) {
+    $stmt->bind_result($nomDuSite, $urlDuSite);
     $stmt->fetch();
 }
+$stmt->close();
+//Récupération du nom du site et de l'URL
+
 
 ?>
